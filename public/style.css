@@ -1,0 +1,143 @@
+h2{
+  margin: 0%;
+}
+p{
+  margin: 0%;
+}
+.fail_msg{
+  text-align: center;
+  color: lightcoral;
+}
+.succ_msg{
+  text-align: center;
+  color: lightgreen;
+}
+.pageTitle{
+  /* border:solid green; */
+  text-align: center;
+  margin-top: 7rem; 
+}
+#header{
+  /* border:solid red; */
+  display: grid;
+  grid-template-columns:10% 80% 10%;
+  text-align: center;
+}
+#logout{
+  /* border:solid blue; */
+  align-self: center;
+}
+
+.google-login-button{
+  display: flex;
+  justify-content: center;
+  background: white;
+  color: #343541;
+  align-items:center;
+  border-radius:0.3rem;
+  width:100%;
+}
+
+.formContainer{
+  
+  border:2px solid #10a37f;
+  border-radius: 2rem;
+  padding: 2rem;
+  margin: auto;
+  width:max-content;
+  
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 0.5rem;
+  
+}
+
+#feedContainer {
+/*   border: solid;  */
+  display:flex;
+  height: 80dvh;
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+#subs{
+/*   border:solid;
+  border-color: red; */
+  overflow:scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  width:15%;
+  flex-shrink: 0;
+}
+.vertical {
+  border: 0.1rem solid #808080;
+  margin-left: 1rem;
+}
+#showFeeds{
+/*   border:solid;
+  border-color: blue; */
+  overflow:scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  padding-left: 10%;
+  padding-right: 10%;
+  width: 100%;  
+}
+#showFeeds::-webkit-scrollbar {
+  display: none;
+}
+#subs::-webkit-scrollbar {
+  display: none;
+}
+
+.sub_title{
+/*   background: gray; */
+  border:1px solid gray;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem;
+  cursor:pointer;
+  color:#10a37f;
+}
+body{
+  font-family:Söhne,ui-sans-serif,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  color: white;
+  line-height:1.5;
+  background-color:#343541
+}
+button{
+  background-color: #10a37f;
+  color:white;
+  font-size:100%;
+  line-height:inherit;
+  border-color: transparent;
+  border-radius: 0.3rem; 
+  cursor:pointer;
+}
+input{
+  font-size: 100%;
+  color: black;
+  line-height:inherit;
+  border-color: transparent;
+  border-radius: 0.2rem 
+}
+a,.news_title{
+  color: greenyellow
+}
+#subscribe,#unsubscribe{
+  text-align: center;
+  cursor:pointer;
+}
+.news_info{
+  display: flex;
+  justify-content: space-between;
+  color:coral;
+}
+.news_item{
+  cursor:pointer;
+  border:1px solid white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}

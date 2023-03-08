@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>RSS Feeder</title>
+</head>
+<body>
+    <div class="succ_msg">
+        <% if ( message.successInfo ) { %>
+            <p><%= message.successInfo %> </p>
+        <% } %>
+    </div>
+    <div id="header">
+        <div id="logo">
+            <img src="/favicon.ico" alt="Logo">
+        </div>
+        <div class="pageTitle" style=" margin-top: 0rem; ">
+            <h1>RSS Feed Reader</h1>
+        </div>
+        <div id="logout">
+            <form action="/profile/logout" method="post">
+                <input type="hidden" name="_csrf" value=<%=_csrf%>>
+                <button type="submit" style="background-color:#ff2323">Logout</button>
+            </form>
+        </div>
+    </div>
+    <div id="subscribe">
+        <form action="/profile/subscribe" method="post">
+            <input type="hidden" name="_csrf" value=<%=_csrf%>>
+            <input type="url" name="feedUrl" id="urlField" placeholder="add feed url ..." required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div> 
+    <div id="feedContainer">
+        <div id="subs">
+            <h2 style="color:coral; text-align: center;">Subscribed</h2>
+            <hr>
+            <% feedTitles.forEach(title => {%>
+            <div class="sub_title" onclick="fetchFeeds(this.innerText)">
+                    <%=title%>
+            
+            </div>
+            <%}) %>
+        </div>
+        <div class="vertical"></div>
+        <div id="showFeeds">
+            <h3 style="margin:10%;color:#10a37f;text-align:center;">This is your feed view.</h3>
+        </div>
+    </div>
+
+    <div id="unsubscribe">
+    </div>
+    
+    <script>
+        async function fetchFeeds(title){
+            const response = await fetch("/profile/fetchFeeds", {
+                method: "POST", // *GET, POST, PUT, DELETE, etc.
+                // mode: "cors", // no-cors, *cors, same-origin
+                // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                // credentials: "same-origin", // include, *same-origin, omit
+                headers: {
+                    "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                // redirect: "follow", // manual, *follow, error
+                // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify({"feedTitle":title}), // body data type must match "Content-Type" header
+            })
+            const res=await response.text()
+            const parsedRes=res.split('#separator#')
+            if(parsedRes[2]!==undefined){
+                document.getElementById("showFeeds").innerHTML=parsedRes[0]
+                document.getElementById("unsubscribe").innerHTML=parsedRes[1]
+                document.getElementById("logout").innerHTML=parsedRes[2]
+            }else{
+                window.open('/','_self')
+            }
+
+        }
+   </script>
+</body>
+</html>

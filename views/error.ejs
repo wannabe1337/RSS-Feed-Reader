@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Error</title>
+</head>
+<body> 
+    <div class="pageTitle" style=" margin-top: 0rem; ">
+        <h1>ERROR</h1>
+    </div>
+       
+    <div class="succ_msg">
+        <% if ( message.successInfo ) { %>
+            <p><%= message.successInfo %> </p>
+        <% } %>
+    </div>
+    <div class="fail_msg">
+        <% if ( message.failureInfo ) { %>
+            <p><%= message.failureInfo %> </p>
+        <% } %>
+    </div>
+    <div style="text-align: center;">
+        <a href="/">Login</a>
+        <a href="/register">Register</a>
+    </div>
+</body>
+</html>

@@ -36,6 +36,7 @@ p{
   align-items:center;
   border-radius:0.3rem;
   width:100%;
+  cursor:pointer;
 }
 
 .formContainer{

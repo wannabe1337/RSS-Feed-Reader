@@ -96,7 +96,7 @@ const googleOAuthLogin=async (req,res,next)=>{
   }
   else{
     // upsert the user
-    Users.findOneAndUpdate({email:userInfo.email},{email:userInfo.email,oauth:true,oauth_access_token:userInfo.access_token,oauth_id_token:userInfo.id_token},{upsert:true,new:true})
+    Users.findOneAndUpdate({email:userInfo.email},{email:userInfo.email,oauth:true,oauth_access_token:req.googleAuthTokens.access_token,oauth_id_token:req.googleAuthTokens.id_token},{upsert:true,new:true})
     .exec((error, user) => {
       if (error) {
         console.log("Error Info : "+error)

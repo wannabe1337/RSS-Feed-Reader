@@ -71,10 +71,11 @@
             })
             const res=await response.text()
             const parsedRes=res.split('#separator#')
-            if(parsedRes[2]!==undefined){
+            if(parsedRes[3]!==undefined){
                 document.getElementById("showFeeds").innerHTML=parsedRes[0]
                 document.getElementById("unsubscribe").innerHTML=parsedRes[1]
                 document.getElementById("logout").innerHTML=parsedRes[2]
+                document.getElementById("subscribe").innerHTML=parsedRes[3]
             }else{
                 window.open('/','_self')
             }

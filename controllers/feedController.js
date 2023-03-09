@@ -76,6 +76,12 @@ const fetchFeeds = async (req, res) => {
       <form action="/profile/logout" method="post">\
         <input type="hidden" name="_csrf" value='+req.session.csrfToken+'>\
         <button type="submit" style="background-color:#ff2323">Logout</button>\
+      </form>\
+      #separator#\
+      <form action="/profile/subscribe" method="post">\
+        <input type="hidden" name="_csrf" value='+req.session.csrfToken+'>\
+        <input type="url" name="feedUrl" id="urlField" placeholder="add feed url ..." required>\
+        <button type="submit">Subscribe</button>\
       </form>'
 
     res.send(htmlResponse)
